@@ -9,6 +9,8 @@ import numpy as np
 import gym
 import time
 import pybullet_envs
+import secrets
+
 try:
   import tds_environments
 except:
@@ -18,7 +20,6 @@ from arspb.policies import *
 import time
 import arspb.trained_policies as tp
 import os
-import random
 
 #temp hack to create an envs_v2 pupper env
 
@@ -137,7 +138,7 @@ def main(argv):
       possible_targets = reacher_kinematics.random_reachable_points(100)
 
       ## 8 possible targets gets -5
-      target = random.choice(possible_targets)
+      target = secrets.choice(possible_targets)
       obs = env.reset(target)
       done = False
       totalr = 0.
