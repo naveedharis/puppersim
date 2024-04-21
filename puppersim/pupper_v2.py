@@ -81,7 +81,7 @@ class Pupper(quadruped_base.QuadrupedBase):
     motor_angles = np.array(Pupper.get_neutral_motor_angles()) + motor_angles
     return motor_angles
 
-  def get_neutral_motor_angles():
+  def get_neutral_motor_angles(self):
     ABDUCTION_ANGLE=0
     HIP_ANGLE=0.6
     KNEE_ANGLE=-1.2
