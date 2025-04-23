@@ -2,11 +2,11 @@
 """A scene containing only a planar floor."""
 
 from typing import Sequence
-import random
 
 import gin
 from pybullet_envs.minitaur.envs_v2 import base_client
 from pybullet_envs.minitaur.envs_v2.scenes import scene_base
+import secrets
 
 _PLANE_URDF = ("plane.urdf")
 
@@ -45,7 +45,7 @@ class BumpyScene(scene_base.SceneBase):
     heightfieldData = [0] * numHeightfieldRows * numHeightfieldColumns
     for j in range(int(numHeightfieldColumns / 2)):
       for i in range(int(numHeightfieldRows / 2)):
-        height = random.uniform(0, heightPerturbationRange)
+        height = secrets.SystemRandom().uniform(0, heightPerturbationRange)
         heightfieldData[2 * i + 2 * j * numHeightfieldRows] = height
         heightfieldData[2 * i + 1 + 2 * j * numHeightfieldRows] = height
         heightfieldData[2 * i + (2 * j + 1) * numHeightfieldRows] = height
